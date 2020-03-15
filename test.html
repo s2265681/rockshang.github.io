@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <button></button>
+   <button></button>
+   <button></button>
+</body>
+<script>
+    // const buttons = document.getElementsByTagName('button')
+    // const nums = [20,31,0]
+    // const Mi = fi()
+    // for(var i=0;i<buttons.length;i++){
+    //     buttons[i].innerHTML = `点赞${nums[i]}`
+    //     // buttons[i].onclick=fi(nums[i])
+    //     buttons[i].onclick=(function(i){
+    //         console.log(i,'iii')
+    //         return function(){
+    //             // console.log(i,'iii')
+    //             console.log(this,'this')
+    //             this.innerHTML = Mi.call(this)
+    //         }
+    //     })(i)
+    // }
+    // function fi(){
+    //     var count = 4
+    //     return function(){
+    //        return `点赞${++count}`
+    //     }
+    // }
+
+    // (function(){
+    //     Number.prototype.add = function(x){
+    //         console.log(this+x,'this')
+    //         return this+x
+    //     }
+    //     Number.prototype.subtract = function (x) {
+    //        return this - x;
+    //     };
+    //     Number.prototype.iterate = function () {
+    //         var result = []
+    //         for(let i = 0;i<=this ;i++){
+    //             result.push(i)
+    //         }
+    //        return result
+    //     };
+        
+    // })()
+
+  // 5..add(3)
+//   5['add'](3)
+// 链式运算
+// var v = 4['add'](3).subtract(1)  // 6
+// console.log(v,'v')  // 6
+// 遍历数字转化成数组
+// var v = 5['iterate']()
+// console.log(v,'v')
+
+
+
+// var x = 1;
+
+// function f(y = x) {
+//   console.log(y);
+// }
+
+// f()
+
+// 箭头函数
+// function foo() {
+//     // console.log(this,'/')
+//     // var id = 22
+//     this.id = setTimeout(() => {
+//     console.log('id1:', this.id);
+//   }, 100);
+// //   setTimeout(function(){
+// //     console.log('id2:', this.id);
+// //   }, 100);
+// }
+
+// // var id = 21;
+// // foo.call({id:3});
+// // // id: 42
+// // foo()
+// var f = new foo()
+// console.log(f)
+// f.a 
+// // f()
+
+// function Timer() {
+//   this.s1 = 0;
+//   this.s2 = 0;
+//   // 箭头函数
+//   setInterval(() => this.s1++, 1000);
+//   // 普通函数
+//   setInterval(function () {
+//     this.s2++;
+//   }, 1000);
+// }
+
+// var timer = new Timer();
+
+// setTimeout(() => console.log('s2: ', timer.s1), 3100);
+// setTimeout(() => console.log('s2: ', timer.s2), 3100);
+
+// var handler = {
+//   id : '123456',
+//   init:function(){
+//      document.addEventListener('click',
+//          event => this.doSomething(event.type),false);
+//   },
+//   doSomething:function(type){
+//      console.log('Handling' + type + 'for' +this.id);
+//   }
+// }
+
+// handler.doSomething()
+
+var num = 647389 // 转化成 647,389.34
+//  方法一
+// function transNum(num){
+//   var strNum = String(num)
+
+//   var beforeDot =  strNum.split('.')[0].toString()
+//   var aftrDot = strNum.match(/\./g) ? '.'+strNum.split('.')[1].toString(): ''
+
+//   var beforTxt = [...beforeDot].reverse().join('').replace(/(\d{3})/g,'$1,')
+//   var nextTxt = [...beforTxt][[...beforTxt].length-1]===','?[...beforTxt].slice(0,-1).reverse().join(''):[...beforTxt].reverse().join('')
+//   var result = nextTxt + aftrDot
+//   return result
+// }
+
+// 方法二
+function transNum(num){
+   var num =(num||0).toString(),result="";
+   while(num.length>3){
+       result=','+num.slice(-3) + result
+       num = num.slice(0,num.length-3)
+   }
+   if(num){
+       result = num + result
+   }
+   return result
+}
+
+var v = transNum(num)
+
+</script>
+</html>

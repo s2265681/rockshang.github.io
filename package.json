@@ -1,0 +1,16 @@
+{
+  "name": "vuepress",
+  "version": "1.0.0",
+  "description": "使用 VuePress 搭建静态网站",
+  "scripts": {
+    "start": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "element-ui": "^2.13.0",
+    "vuepress": "1.0.3"
+  },
+  "dependencies": {
+    "path": "^0.12.7"
+  }
+}
