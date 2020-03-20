@@ -14,5 +14,13 @@ features:
 - title: 求职·面试
   details: 工作日每天搞定一道大厂前端面试题，一年后再回头，会感谢曾经努力的自己！
 footer: MIT Licensed | Copyright © 2019-present Rock Shang
+
 ---
-<bg>1</bg>
+
+<div style="text-align: center;
+    position: relative;
+    bottom: -105px;">
+ <a href="http://www.beian.miit.gov.cn/" target="_blank">浙ICP备19021909号</a>
+</div>
+
+<bg></bg>

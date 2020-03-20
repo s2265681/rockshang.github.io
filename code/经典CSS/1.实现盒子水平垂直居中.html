@@ -61,17 +61,33 @@
     } */
 
 /* 第五种方式-css新特性：父元素display:box; box-align和box-pack 各个浏览器支持不同，需要加内核前缀 已经越来越多支持-webkit-box*/
-  .container{
-    display: -webkit-box;
     /* 垂直居中 */
-    -webkit-box-align: center;  
     /* 水平居中 */
+  /* .container{
+    display: -webkit-box;
+    -webkit-box-align: center;  
     -webkit-box-pack: center;
     }
 
    .info{
 
-    }
+    } */
+
+/* 第六种方式  绝对定位 + margin:auto 盒子的宽高需要知道 */
+/* 原理是块级元素默认会水平充满屏幕，通过绝对定位，四个方向充满后，设置宽高后，此时一侧如果为定值，一侧为剩余空间，如果两侧为auto，那么就会平分剩余空间。 */
+.container {
+    /* display: relative; */
+}
+.info{
+   position: absolute;
+   top:0;
+   left:0;
+   right:0;
+   bottom:0;
+   margin: auto;
+   width: 200px;
+   height: 20px;
+}
 
 </style>
 <body>

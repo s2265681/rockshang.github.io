@@ -135,6 +135,21 @@ obj["school"] = getQueryString("school");
 console.log(obj, "mmm");
 ```
 
+// 法三：正则表达式--简单点版本
+
+```js
+function fn(url,name){
+  let res = ''
+  let reg = new RegExp(`${name}=(\\w+)`,'g')
+  // let reg = eval(`\${name}=(\w+)\g`)
+  url.replace(reg,(r,r1)=>res=r1)
+  return res
+}
+
+fn('www.baidu.com?aa=1&bb=2','bb')  // 2
+
+```
+
 ## 4、 完成 extname 函数，它会接受一个文件名作为参数，你需要返回它的扩展名。例如，输入 emoji.png，返回 .png。
 
 ```js

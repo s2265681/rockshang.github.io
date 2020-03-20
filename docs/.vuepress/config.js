@@ -30,6 +30,11 @@ function getGuideConfig () {
       path: '/Guide/'
     },
     {
+      title:'CSS',
+      collapsable: true,
+      children:getChildUrl('/Guide/MCSS/') 
+    },
+    {
       title:'Javascript',
       collapsable: true,
       children:getChildUrl('/Guide/Javascript/') 
@@ -42,12 +47,12 @@ function getGuideConfig () {
     {
       title:'TypeScript',
       collapsable: true,
-      children:getChildUrl('/Guide/_TypeScript/')
+      children:getChildUrl('/Guide/MTypeScript/')
     },
     {
       title:'Webpack',
       collapsable: true,
-      children:getChildUrl('/Guide/_Webpack/')
+      children:getChildUrl('/Guide/MWebpack/')
     },
     {
       title:'Vue',
@@ -63,7 +68,12 @@ function getGuideConfig () {
       title:'Node',
       collapsable: true,
       children:getChildUrl('/Guide/Node/')
-    }
+    },
+    {
+      title:'PicStudy',
+      collapsable: true,
+      children:getChildUrl('/Guide/PicStudy/') 
+    },
   ]
 }
 
@@ -94,6 +104,11 @@ function getInterViewConfig (title) {
       title:'框架相关',
       collapsable: true,
       children:getChildUrl('/InterView/Frame/')
+    },
+    {
+      title:'构建工具',
+      collapsable: true,
+      children:getChildUrl('/InterView/_Webpack/')
     },
     {
       title:'算法',

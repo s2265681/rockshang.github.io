@@ -4,7 +4,7 @@
 
 代码仓库于/code/经典 CSS/
 
-## 1、实现一个盒子水平垂直居中（5 种）
+## 1、实现一个盒子水平垂直居中（6 种）
 
 - 第一种方式 绝对定位+margin 拉回 , 缺点： 里面盒子宽高要知道
 
@@ -75,6 +75,25 @@
 }
 
 .info {
+}
+```
+
+- 第六种方式  绝对定位 + margin:auto 盒子的宽高需要知道
+
+```css
+/* 原理是块级元素默认会水平充满屏幕，通过绝对定位，四个方向充满后，设置宽高后，此时一侧如果为定值，一侧为剩余空间，如果两侧为auto，那么就会平分剩余空间。 */
+.container {
+    /* display: relative; */
+}
+.info{
+   position: absolute;
+   top:0;
+   left:0;
+   right:0;
+   bottom:0;
+   margin: auto;
+   width: 200px;
+   height: 20px;
 }
 ```
 

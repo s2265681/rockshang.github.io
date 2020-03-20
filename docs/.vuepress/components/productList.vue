@@ -44,7 +44,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 .el-card__header {
     padding: 10px 15px;
     border-bottom: 1px solid #ebeef5;
