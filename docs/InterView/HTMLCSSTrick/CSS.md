@@ -78,22 +78,22 @@
 }
 ```
 
-- 第六种方式  绝对定位 + margin:auto 盒子的宽高需要知道
+- 第六种方式 绝对定位 + margin:auto 盒子的宽高需要知道
 
 ```css
 /* 原理是块级元素默认会水平充满屏幕，通过绝对定位，四个方向充满后，设置宽高后，此时一侧如果为定值，一侧为剩余空间，如果两侧为auto，那么就会平分剩余空间。 */
 .container {
-    /* display: relative; */
+  /* display: relative; */
 }
-.info{
-   position: absolute;
-   top:0;
-   left:0;
-   right:0;
-   bottom:0;
-   margin: auto;
-   width: 200px;
-   height: 20px;
+.info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 200px;
+  height: 20px;
 }
 ```
 
@@ -274,21 +274,24 @@
 
 ```css
 .box {
-  transform-style: preserve-3d;
+  transform-style:preserve-3d;
+  width:200px; height:200px;
   transform: rotate3d(1, 1, 0, -30deg);
-  margin: 500px;
-  animation: boxAnimation 5s infinite alternate;
+  margin: 50 100px;
+  animation: round 5s infinite;
+  position:relative;
+} 
+@keyframes round{
+      0%{
+          transform:rotateX(-30deg) rotateY(-30deg)
+      }
+      50%{
+          transform:rotateX(150deg) rotateY(150deg)
+      }
+      100%{
+          transform:rotateX(330deg) rotateY(330deg)
+    }
 }
-
-@keyframes boxAnimation {
-  from {
-    transform: rotateX(0deg) rotateY(0deg);
-  }
-  to {
-    transform: rotateX(360deg) rotateY(360deg);
-  }
-}
-
 .box div {
   width: 200px;
   height: 200px;
@@ -338,9 +341,79 @@
 </div>
 ```
 
+<template>
+  <div>案例：</div><br/>
+   <div class="box">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+  </div>
+</template>
+<style scoped>
+.box {
+  transform-style:preserve-3d;
+  width:200px; height:200px;
+  transform: rotate3d(1, 1, 0, -30deg);
+  margin: 50 100px;
+  animation: round 5s infinite;
+  position:relative;
+} 
+@keyframes round{
+      0%{
+          transform:rotateX(-30deg) rotateY(-30deg)
+      }
+      50%{
+          transform:rotateX(150deg) rotateY(150deg)
+      }
+      100%{
+          transform:rotateX(330deg) rotateY(330deg)
+    }
+}
+.box div {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+}
+/* 前 */
+.box div:first-child {
+  transform: translateZ(100px);
+  background-color: rgba(255, 0, 0, 0.2);
+}
+/* 后 */
+.box div:nth-child(2) {
+  transform: translateZ(-100px);
+  background-color: rgba(255, 123, 0, 0.2);
+}
+/* 左 */
+.box div:nth-child(3) {
+  transform: translateX(-100px) rotateY(90deg);
+  background-color: rgba(255, 0, 122, 0.2);
+}
+/* 右 */
+.box div:nth-child(4) {
+  transform: translateX(100px) rotateY(-90deg);
+  background-color: rgba(0, 0, 111, 0.2);
+}
+/* 上 */
+.box div:nth-child(5) {
+  transform: translateY(-100px) rotateX(-90deg);
+  background-color: rgba(0, 120, 0, 0.2);
+}
+/* 下 */
+.box div:nth-child(6) {
+  transform: translateY(100px) rotateX(90deg);
+  background-color: rgba(25, 10, 30, 0.2);
+}
+</style>
+
 ## 5、点击 input，边框变色，点击 input 之外的地方去掉样式。
 
-- /code/经典 css/5.input 边框变色问题
+- 方法一：JS 实现
+
+/code/经典 css/
 
 ```html
 <input type="text" />
@@ -388,3 +461,69 @@ document.addEventListener(
   true
 );
 ```
+
+- 方法二：CSS3 实现
+
+html:
+
+```html
+<input type="text" class="chooseInput" />
+```
+
+css:
+
+```css
+.chooseInput {
+  background: none;
+  outline: none;
+  border: #999 solid 1px;
+  width: 250px;
+  height: 30px;
+  /* margin: 100px; */
+}
+/* 选中时 */
+.chooseInput:focus {
+  background: none;
+  outline: none;
+  color: #f00;
+  animation: inp 1s ease forwards;
+}
+@keyframes inp {
+  0% {
+    border-color: antiquewhite;
+  }
+  100% {
+    border-color: orange;
+  }
+}
+```
+
+<template>
+    <div>案例：</div><br/>
+    <input type="text" class="chooseInput"/>
+</template>
+<style scoped>
+    .chooseInput {
+      background: none;
+      outline: none;
+      border: #999 solid 1px;
+      width: 250px;
+      height: 30px;
+      /* margin: 100px; */
+    }
+    /* 选中时 */
+   .chooseInput:focus{
+      background: none;
+      outline: none;
+      color: #f00;
+      animation: inp 1s ease forwards;
+    }
+    @keyframes inp {
+    0% {
+      border-color: antiquewhite;
+    }
+    100% {
+      border-color: orange;
+    }
+  }
+</style>
