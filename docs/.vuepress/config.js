@@ -70,6 +70,11 @@ function getGuideConfig () {
       children:getChildUrl('/Guide/Node/')
     },
     {
+      title:'Nest',
+      collapsable: true,
+      children:getChildUrl('/Guide/Nest/')
+    },
+    {
       title:'PicStudy',
       collapsable: true,
       children:getChildUrl('/Guide/PicStudy/') 
