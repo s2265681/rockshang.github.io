@@ -4,8 +4,12 @@
 
 [Nest.js 从零到壹系列（二）：数据库的连接](https://mp.weixin.qq.com/s/Y2N39LqVUSadUNu4_emQBA)
 
-[Nest.js 从零到壹系列（二）：数据库的连接](https://mp.weixin.qq.com/s/Y2N39LqVUSadUNu4_emQBA)
-
 [Nest.js 从零到壹系列（三）：使用 JWT 实现单点登录](https://mp.weixin.qq.com/s/DOGe0lUYYdpahdGYELWdaw)
+
+[Nest.js 从零到壹系列（四）：使用中间件、拦截器、过滤器打造日志系统](https://mp.weixin.qq.com/s/gORotB_xPAsHYRb-znrhlg)
+
+
+[Nest.js 从零到壹系列（五）：使用管道、DTO 验证入参，摆脱 if-else 的恐惧](https://mp.weixin.qq.com/s/DOGe0lUYYdpahdGYELWdaw)
+
 
 [用 Vue 和 Express 实现迷你全栈电商应用](https://mp.weixin.qq.com/s/qGwr-OYAJb0nMNx-Z34Sdg)

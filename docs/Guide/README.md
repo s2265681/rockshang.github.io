@@ -33,6 +33,9 @@
 - 具有TS/移动设备上前端开发/NodeJS/服务端开发等经验者优先。
 
 ---
+
+[测试一下你离前端专家这个称号还有多远？](https://mp.weixin.qq.com/s/iQpHQZ7d3BFNEWTzg_89fA)
+
 [关于前端学习路线的一些建议（含面试自测题）](https://mp.weixin.qq.com/s/KZ6BRfaLOQ0akQvnFvtZHw)
 
 [深入react原理与性能优化](https://mp.weixin.qq.com/s/y5C0i34dOKUe8xCxxKusIQ)
