@@ -59,3 +59,26 @@ $ yarn add sequelize sequelize-typescript mysql2 -S
 
 
  https://sequelize.org/v5/
+
+
+- JWT的配置与验证
+
+ yarn add passport passport-jwt passport-local @nestjs/passport @nestjs/jwt -S
+
+
+- 创建模块
+
+```js
+ nest g service auth logical
+ nest g module auth logical
+ ```
+
+ - log日志
+
+ ```js
+
+  yarn add log4js stacktrace-js -S
+
+  // 制作中间件
+  nest g middleware logger middleware
+  ```
