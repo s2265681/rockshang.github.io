@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>koa实战 | RockShang</title>
+    <meta name="description" content="The description of the site.">
+    <link rel="icon" href="/rock.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.a428a3e9.css" as="style"><link rel="preload" href="/assets/js/app.1c82f29a.js" as="script"><link rel="preload" href="/assets/js/2.30c5ac0e.js" as="script"><link rel="preload" href="/assets/js/37.28ccdd12.js" as="script"><link rel="prefetch" href="/assets/js/10.a74c9590.js"><link rel="prefetch" href="/assets/js/11.9c7ded70.js"><link rel="prefetch" href="/assets/js/12.48ff4abd.js"><link rel="prefetch" href="/assets/js/13.aa0fdd62.js"><link rel="prefetch" href="/assets/js/14.028cd6c8.js"><link rel="prefetch" href="/assets/js/15.d04982f2.js"><link rel="prefetch" href="/assets/js/16.7df1ca52.js"><link rel="prefetch" href="/assets/js/17.4094085c.js"><link rel="prefetch" href="/assets/js/18.a7f76ddc.js"><link rel="prefetch" href="/assets/js/19.ad0bd4ef.js"><link rel="prefetch" href="/assets/js/20.6d7b79d4.js"><link rel="prefetch" href="/assets/js/21.cbb99ef6.js"><link rel="prefetch" href="/assets/js/22.22c92f5b.js"><link rel="prefetch" href="/assets/js/23.8ccf7504.js"><link rel="prefetch" href="/assets/js/24.c15b004a.js"><link rel="prefetch" href="/assets/js/25.b6f46ac1.js"><link rel="prefetch" href="/assets/js/26.d5249bcb.js"><link rel="prefetch" href="/assets/js/27.8e1e2c79.js"><link rel="prefetch" href="/assets/js/28.40530326.js"><link rel="prefetch" href="/assets/js/29.977deed7.js"><link rel="prefetch" href="/assets/js/3.b8784789.js"><link rel="prefetch" href="/assets/js/30.0f1571d0.js"><link rel="prefetch" href="/assets/js/31.008a1fd6.js"><link rel="prefetch" href="/assets/js/32.3e6f4ab6.js"><link rel="prefetch" href="/assets/js/33.163b5e74.js"><link rel="prefetch" href="/assets/js/34.01afbfab.js"><link rel="prefetch" href="/assets/js/35.1589fa59.js"><link rel="prefetch" href="/assets/js/36.93e80cbe.js"><link rel="prefetch" href="/assets/js/38.2ef5f24e.js"><link rel="prefetch" href="/assets/js/39.5e35cedd.js"><link rel="prefetch" href="/assets/js/4.78363493.js"><link rel="prefetch" href="/assets/js/40.2819cad4.js"><link rel="prefetch" href="/assets/js/41.df64cca5.js"><link rel="prefetch" href="/assets/js/42.ac7fa58d.js"><link rel="prefetch" href="/assets/js/43.02fb4468.js"><link rel="prefetch" href="/assets/js/44.3ed76024.js"><link rel="prefetch" href="/assets/js/45.0780457e.js"><link rel="prefetch" href="/assets/js/46.ab1d16a3.js"><link rel="prefetch" href="/assets/js/47.5f9182b4.js"><link rel="prefetch" href="/assets/js/48.79e5c291.js"><link rel="prefetch" href="/assets/js/49.6d84d7a2.js"><link rel="prefetch" href="/assets/js/5.36f3580c.js"><link rel="prefetch" href="/assets/js/50.ed4d42f0.js"><link rel="prefetch" href="/assets/js/51.5bf872b9.js"><link rel="prefetch" href="/assets/js/52.60424767.js"><link rel="prefetch" href="/assets/js/53.0790fba9.js"><link rel="prefetch" href="/assets/js/54.68d4743d.js"><link rel="prefetch" href="/assets/js/55.78f3cd09.js"><link rel="prefetch" href="/assets/js/56.67f24f8b.js"><link rel="prefetch" href="/assets/js/57.11535bb9.js"><link rel="prefetch" href="/assets/js/58.401294eb.js"><link rel="prefetch" href="/assets/js/59.bc7d7bc4.js"><link rel="prefetch" href="/assets/js/6.c855d9b2.js"><link rel="prefetch" href="/assets/js/60.790b783a.js"><link rel="prefetch" href="/assets/js/61.b15c65be.js"><link rel="prefetch" href="/assets/js/62.0ab03f78.js"><link rel="prefetch" href="/assets/js/63.7c4eef18.js"><link rel="prefetch" href="/assets/js/64.bdcf732a.js"><link rel="prefetch" href="/assets/js/65.d9fe0367.js"><link rel="prefetch" href="/assets/js/66.0ff2964c.js"><link rel="prefetch" href="/assets/js/67.0bfc6ad7.js"><link rel="prefetch" href="/assets/js/68.67d07dac.js"><link rel="prefetch" href="/assets/js/69.d790c1a8.js"><link rel="prefetch" href="/assets/js/7.de0374ba.js"><link rel="prefetch" href="/assets/js/70.34a379ca.js"><link rel="prefetch" href="/assets/js/71.fc2bc711.js"><link rel="prefetch" href="/assets/js/72.4914f810.js"><link rel="prefetch" href="/assets/js/73.126bcea7.js"><link rel="prefetch" href="/assets/js/74.9ece42bc.js"><link rel="prefetch" href="/assets/js/8.15d23de7.js"><link rel="prefetch" href="/assets/js/9.689eb93c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a428a3e9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">RockShang</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/Guide/" class="nav-link router-link-active">
+  Guide
+</a></div><div class="nav-item"><a href="/Projects/product.html" class="nav-link">
+  Projects
+</a></div><div class="nav-item"><a href="/InterView/" class="nav-link">
+  InterView
+</a></div><div class="nav-item"><a href="http://rockshang.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Homepage
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/s2265681" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/Guide/" class="nav-link router-link-active">
+  Guide
+</a></div><div class="nav-item"><a href="/Projects/product.html" class="nav-link">
+  Projects
+</a></div><div class="nav-item"><a href="/InterView/" class="nav-link">
+  InterView
+</a></div><div class="nav-item"><a href="http://rockshang.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Homepage
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/s2265681" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/Guide/" class="sidebar-link">Guide</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Javascript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ES6</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Node</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Guide/Node/00Guild.html" class="sidebar-link">Guild</a></li><li><a href="/Guide/Node/01NodeJs基础.html" class="sidebar-link">NodeJs基础</a></li><li><a href="/Guide/Node/02网络编程.html" class="sidebar-link">网络编程</a></li><li><a href="/Guide/Node/03可持久化Mysql.html" class="sidebar-link">可持久化Mysql</a></li><li><a href="/Guide/Node/04可持久化Mongodb.html" class="sidebar-link">可持久化Mysql-mongodb redis</a></li><li><a href="/Guide/Node/05Koa实战.html" class="active sidebar-link">koa实战</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Guide/Node/06Node鉴权.html" class="sidebar-link">Koa实战 - 鉴权</a></li><li><a href="/Guide/Node/07NodeRestful接口.html" class="sidebar-link">Koa实战 - Restful API - 及常见任务</a></li><li><a href="/Guide/Node/node.html" class="sidebar-link">Node 大纲</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nest</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>PicStudy</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="koa实战"><a href="#koa实战" class="header-anchor">#</a> koa实战</h3> <ul><li>koa 引入</li> <li>模版引擎（落后 前端可以解决）</li> <li>鉴权 授权 session/cookie 、 Token 、 OAuth</li> <li>Restful API 及常见</li></ul> <ol><li><p>概念：新的 web 框架 更小更健硕 express 下一代基于 Node.js 的框架</p></li> <li><p>特点</p> <ul><li>轻量</li> <li>中间件架构</li> <li>优雅的 API 设计</li> <li>增强的错误处理 async 语法增强</li></ul></li> <li><p>安装</p> <div class="language- extra-class"><pre class="language-text"><code>  npm i koa -S
+</code></pre></div></li> <li><p>中间件机制、请求、响应
+-&gt; mid.js
+next()
+洋葱模型
+OOP 面向对象的编程
+AOP 面向切面的编程 语言级 框架级
+顺序执行、也有横向的需要 切面层面，如 鉴权 错误处理 日志 ---&gt; 中间件的使用情况</p></li> <li><p>上下环境的总结 ctx</p> <ul><li>.req Node 的 request</li> <li>.res Node 的 response</li> <li>.response koa 的 response</li> <li>.request koa 的 request</li> <li>.state 推荐命名空间 用于中间件传递信息和前端视图</li> <li>.app 应用程序引用</li></ul></li> <li><p>router - npm i koa-router -S
+-&gt; router-Pro 使用路由</p> <div class="language- extra-class"><pre class="language-text"><code>     // 编写
+     const Router = require('koa-router')
+     const router  = new Router({prefix:'/users'})
+
+     router.get('/',ctx=&gt;{
+         ctx.body = 'user'
+     })
+
+     module.exports = router
+     // 使用
+     const users = require('./routes/users')
+     app.use(index.routes())
+</code></pre></div><ol start="7"><li><p>静态文件服务 模版引擎</p> <ul><li>npm i koa-static -S</li></ul> <p>-&gt; router-Pro/public/test.html</p> <div class="language- extra-class"><pre class="language-text"><code>    // index.js 引入
+    const static = require('koa-static')
+    app.use(static(__dirname + '/public'))
+    // 编写
+    router-Pro/public
+    // 执行
+    // http://localhost:3001/login-session.html
+</code></pre></div><ul><li>Handlebars templates for Koa
+
+https://github.com/koajs/koa-hbs</li> <li>npm install koa-hbs@next --save
+-&gt; router-Pro/views</li></ul> <div class="language- extra-class"><pre class="language-text"><code>   // app 中引入
+   const hbs = require('koa-hbs')
+   app.use(hbs.middleware({
+      viewPath:__dirname + '/views, // 视图根目录
+      defaultLayout:'layout', // 默认的布局页面
+      partialsPath:__dirname + '/views/partials', // 注册partial目录
+      disableCache:true  // 开发不缓存
+  }))
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>  // 使用
+  // -&gt;routes/index.js
+
+</code></pre></div><ul><li><p>使用 moment 方法
+const helpers = require('./utils/ helpers')</p></li> <li><p>常用的工厂方法
+https://github.com/helpers/handlebars-helpers</p></li> <li><p>高级应用: 代码搬家（类似于插槽 引入jquery）
+// -&gt; layout.hbs</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>&lt;script src=&quot;https://cdn.bootcss.com/   jquery/3.3.1/jquery.min.js&quot;&gt;
+&lt;/script&gt;
+{{#block 'jquery'}}{{/block}}
+</code></pre></div><p>// 在 users.hbs 里面使用 jquery , 控制台就会打印出 content for jQuery</p> <div class="language- extra-class"><pre class="language-text"><code>  {{#contentFor 'jquery'}}
+  &lt;script&gt;
+      $(function(){
+          console.log('content for jQuery')
+      })
+  &lt;/script&gt;
+  {{/contentFor}}
+</code></pre></div></li></ol></li> <li><p>cookie是否显示视频</p></li></ol> <div class="language- extra-class"><pre class="language-text"><code> // 若cookie中不存在记录则不在播放，index.js
+   let showVideo;
+ if(ctx.cookies.get('isPlayed')) {
+   showVideo = false;
+ }else{
+     showVideo = true;
+     ctx.cookies.set('isPlayed',true,{**maxAge**:7 * 24 * 3600000});
+ }
+ await ctx.render('index',{list,showVideo})
+</code></pre></div><p>// 隐藏视频，index.hbs</p> <div class="language- extra-class"><pre class="language-text"><code>  {{#contentFor 'jquery'}}
+    &lt; script &gt;
+        $(&quot;#home-banner-video&quot;).on(&quot;ended&quot;,function(){
+          $(this).remove();
+        })
+    &lt; /script &gt; 
+    {{/contentFor}}
+</code></pre></div><ol start="9"><li>列表排序</li></ol> <pre><code>```
+const list  = ctx.state.vipCoures
+list.sort((a,b)=&gt;a.sort-b.sort)
+await ctx.render('index',{list})
+```
+</code></pre> <ol start="10"><li><p>ctx</p> <ul><li><p>ctx.accepts('html') === 'html'  判断是不是渲染html页面</p></li> <li><p>ctx.state.dataValue = 存取data数据</p></li> <li><p>ctx.cookie.set('isPlayed',true,{maxAge:7 * 24 * 3600000,httpOnly:false})</p></li> <li><p>ctx.cookie.get('isPlayed)</p></li> <li><p>ctx.render('index',{list})   // 渲染模版引擎 传入list数据</p></li> <li><p>ctx.body = 'hello world'    //  == res.</p></li> <li><p>ctx.res.statusCode = 404;   // 状态码</p></li> <li><p>ctx.request.body            // 获取body数据</p></li> <li><p>ctx.res</p></li></ul></li></ol></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Guide/Node/04可持久化Mongodb.html" class="prev">
+        可持久化Mysql-mongodb redis
+      </a></span> <span class="next"><a href="/Guide/Node/06Node鉴权.html">
+        Koa实战 - 鉴权
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.1c82f29a.js" defer></script><script src="/assets/js/2.30c5ac0e.js" defer></script><script src="/assets/js/37.28ccdd12.js" defer></script>
+  </body>
+</html>
