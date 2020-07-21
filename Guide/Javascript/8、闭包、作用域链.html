@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>8、闭包作用域链 | RockShang</title>
+    <meta name="description" content="The description of the site.">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/rock.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.1f544046.css" as="style"><link rel="preload" href="/assets/js/app.68ae7a9e.js" as="script"><link rel="preload" href="/assets/js/2.6575e8b1.js" as="script"><link rel="preload" href="/assets/js/37.074d14d7.js" as="script"><link rel="prefetch" href="/assets/js/10.65aa31cd.js"><link rel="prefetch" href="/assets/js/11.418765b4.js"><link rel="prefetch" href="/assets/js/12.71c64d6f.js"><link rel="prefetch" href="/assets/js/13.00ebf28d.js"><link rel="prefetch" href="/assets/js/14.0fef54c7.js"><link rel="prefetch" href="/assets/js/15.ef612203.js"><link rel="prefetch" href="/assets/js/16.5d74bd1f.js"><link rel="prefetch" href="/assets/js/17.1afc5127.js"><link rel="prefetch" href="/assets/js/18.418724ef.js"><link rel="prefetch" href="/assets/js/19.81c5e3a1.js"><link rel="prefetch" href="/assets/js/20.f523820a.js"><link rel="prefetch" href="/assets/js/21.48765cc2.js"><link rel="prefetch" href="/assets/js/22.9c886d98.js"><link rel="prefetch" href="/assets/js/23.c69a3d98.js"><link rel="prefetch" href="/assets/js/24.cc0b0e40.js"><link rel="prefetch" href="/assets/js/25.73f1da8d.js"><link rel="prefetch" href="/assets/js/26.3ade246b.js"><link rel="prefetch" href="/assets/js/27.558604c0.js"><link rel="prefetch" href="/assets/js/28.eb4e74bb.js"><link rel="prefetch" href="/assets/js/29.a639b70e.js"><link rel="prefetch" href="/assets/js/3.04e83961.js"><link rel="prefetch" href="/assets/js/30.bcee51cd.js"><link rel="prefetch" href="/assets/js/31.01dfc790.js"><link rel="prefetch" href="/assets/js/32.91d0252e.js"><link rel="prefetch" href="/assets/js/33.da43b624.js"><link rel="prefetch" href="/assets/js/34.5232f0cc.js"><link rel="prefetch" href="/assets/js/35.fd783b93.js"><link rel="prefetch" href="/assets/js/36.b6656703.js"><link rel="prefetch" href="/assets/js/38.725588bd.js"><link rel="prefetch" href="/assets/js/39.b5bf3708.js"><link rel="prefetch" href="/assets/js/4.0a228064.js"><link rel="prefetch" href="/assets/js/40.984982f8.js"><link rel="prefetch" href="/assets/js/41.b6256cad.js"><link rel="prefetch" href="/assets/js/42.555c5be0.js"><link rel="prefetch" href="/assets/js/43.68a5645d.js"><link rel="prefetch" href="/assets/js/44.c06004e1.js"><link rel="prefetch" href="/assets/js/45.345805bb.js"><link rel="prefetch" href="/assets/js/46.dcf63929.js"><link rel="prefetch" href="/assets/js/47.005fc014.js"><link rel="prefetch" href="/assets/js/48.9ac88328.js"><link rel="prefetch" href="/assets/js/49.dff6a2fc.js"><link rel="prefetch" href="/assets/js/5.cab846eb.js"><link rel="prefetch" href="/assets/js/50.1021d356.js"><link rel="prefetch" href="/assets/js/51.47967a5a.js"><link rel="prefetch" href="/assets/js/52.83bcb3ba.js"><link rel="prefetch" href="/assets/js/53.c7d48307.js"><link rel="prefetch" href="/assets/js/54.169235eb.js"><link rel="prefetch" href="/assets/js/55.3d5f79a6.js"><link rel="prefetch" href="/assets/js/56.9557d22c.js"><link rel="prefetch" href="/assets/js/57.4d30e8d0.js"><link rel="prefetch" href="/assets/js/58.c95efcfc.js"><link rel="prefetch" href="/assets/js/59.3442e4c0.js"><link rel="prefetch" href="/assets/js/6.67f6078a.js"><link rel="prefetch" href="/assets/js/60.a288b42b.js"><link rel="prefetch" href="/assets/js/61.b0dbc6c4.js"><link rel="prefetch" href="/assets/js/62.784603ac.js"><link rel="prefetch" href="/assets/js/63.fd0ad1c7.js"><link rel="prefetch" href="/assets/js/64.a4f7ccb7.js"><link rel="prefetch" href="/assets/js/65.5c3d5203.js"><link rel="prefetch" href="/assets/js/66.a634fc54.js"><link rel="prefetch" href="/assets/js/67.97614725.js"><link rel="prefetch" href="/assets/js/68.38c40cb5.js"><link rel="prefetch" href="/assets/js/69.1cd2d251.js"><link rel="prefetch" href="/assets/js/7.5a639309.js"><link rel="prefetch" href="/assets/js/70.fd648f81.js"><link rel="prefetch" href="/assets/js/71.7085765e.js"><link rel="prefetch" href="/assets/js/72.b49d85db.js"><link rel="prefetch" href="/assets/js/73.ae20b6b2.js"><link rel="prefetch" href="/assets/js/74.6c326377.js"><link rel="prefetch" href="/assets/js/75.b9c6b11d.js"><link rel="prefetch" href="/assets/js/76.a5044230.js"><link rel="prefetch" href="/assets/js/77.299e267d.js"><link rel="prefetch" href="/assets/js/78.15524bb9.js"><link rel="prefetch" href="/assets/js/79.4599ee43.js"><link rel="prefetch" href="/assets/js/8.cd1968eb.js"><link rel="prefetch" href="/assets/js/80.b3375dbb.js"><link rel="prefetch" href="/assets/js/81.f3c7e5fb.js"><link rel="prefetch" href="/assets/js/82.8513caaa.js"><link rel="prefetch" href="/assets/js/83.439174e5.js"><link rel="prefetch" href="/assets/js/84.d391a35a.js"><link rel="prefetch" href="/assets/js/85.6134a64a.js"><link rel="prefetch" href="/assets/js/86.504477f2.js"><link rel="prefetch" href="/assets/js/87.6cc48f12.js"><link rel="prefetch" href="/assets/js/88.e0af5701.js"><link rel="prefetch" href="/assets/js/89.c909d7c5.js"><link rel="prefetch" href="/assets/js/9.f648b937.js"><link rel="prefetch" href="/assets/js/90.ca284c69.js"><link rel="prefetch" href="/assets/js/91.ce160c29.js"><link rel="prefetch" href="/assets/js/92.a270a4d5.js"><link rel="prefetch" href="/assets/js/93.db8ce3d6.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1f544046.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">RockShang</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/Guide/" class="nav-link router-link-active">
+  Guide
+</a></div><div class="nav-item"><a href="/Projects/product.html" class="nav-link">
+  Projects
+</a></div><div class="nav-item"><a href="/InterView/" class="nav-link">
+  InterView
+</a></div><div class="nav-item"><a href="http://rockshang.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Homepage
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/s2265681" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/Guide/" class="nav-link router-link-active">
+  Guide
+</a></div><div class="nav-item"><a href="/Projects/product.html" class="nav-link">
+  Projects
+</a></div><div class="nav-item"><a href="/InterView/" class="nav-link">
+  InterView
+</a></div><div class="nav-item"><a href="http://rockshang.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Homepage
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/s2265681" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/Guide/" class="sidebar-link">Guide</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Javascript</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Guide/Javascript/0、Guild.html" class="sidebar-link">Js-Gulid</a></li><li><a href="/Guide/Javascript/1、数据类型概述1.html" class="sidebar-link">1、数据类型概述(一)</a></li><li><a href="/Guide/Javascript/2、数据类型概述2.html" class="sidebar-link">2、数据类型概述(二)</a></li><li><a href="/Guide/Javascript/3、正则对象.html" class="sidebar-link">3、RegExp 对象</a></li><li><a href="/Guide/Javascript/4、Number对象.html" class="sidebar-link">4、Number对象</a></li><li><a href="/Guide/Javascript/5、运算符.html" class="sidebar-link">5、运算符</a></li><li><a href="/Guide/Javascript/6、9种数据类型和相互转换.html" class="sidebar-link">6、数据类型与隐式转换</a></li><li><a href="/Guide/Javascript/7、堆栈内存.html" class="sidebar-link">7、堆栈内存</a></li><li><a href="/Guide/Javascript/8、闭包、作用域链.html" class="active sidebar-link">8、闭包作用域链</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Guide/Javascript/8、闭包、作用域链.html#_3、经典面试题分析" class="sidebar-link">3、经典面试题分析</a></li><li class="sidebar-sub-header"><a href="/Guide/Javascript/8、闭包、作用域链.html#_6、写在最后" class="sidebar-link">6、写在最后</a></li></ul></li><li><a href="/Guide/Javascript/9、异步问题大全.html" class="sidebar-link">9、 异步问题大全</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ES6</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nest</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>PicStudy</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_8、闭包作用域链"><a href="#_8、闭包作用域链" class="header-anchor">#</a> 8、闭包作用域链</h1> <h3 id="_1、函数创建"><a href="#_1、函数创建" class="header-anchor">#</a> 1、函数创建</h3> <p>创建函数
+1、开辟一个堆内存(16进制的内存地址)
+2、声明当前函数的作用域（再哪个上下文创建的，它的作用域就是谁）
+3、把函数体内的代码当作字符串存储在堆内存当中(所以不执行没有意义)
+4、把函数的堆内存地址类似对象一样放到栈中供对象调用
+执行函数
+1、会形成一个全新的私有上下文(目的是供函数中的代码执行)，然后进栈执行
+2、在私有上下文中有一个存放私有变量的变量对象 AO（xx）
+3、在代码执行之前要做的事情
+- 初始化它的作用域链&lt;自己的上下文，函数的作用域&gt;
+- 初始化this (箭头函数没有this)
+- 初始化Arguments实参集合(箭头函数没有)
+- 形参赋值(形参变量是函数的私有变量，需要存储在AO中的)
+- 变量提升(在私有上下文中声明的变量都是私有变量)
+4、代码执行（把之前在函数中存储的字符串，拿过来在上下文中一次执行）
+作用域链查找机制：在代码执行过程中，遇到一个变量，我们首先看一下是否为自己的私有变量，如果是，接下来的操作都是私有的和外界没有直接联系，如果不是私有的，那么按scope-chain，向上级上下文中查找（如果是上级私有的，接下来的操作都是操作上级的变量，。。。一直找，找到EC(G)为止）
+5、根据实际情况确定当前上下文是否出栈释放
+6、为了保证栈内存的大小，内存优化，一般情况下，如果当前函数执行产生的上下文在进栈且代码执行完成后，会把这次上下文移除栈（上下文释放后，之前上下文中存储的私有变量等信息也就跟着释放了）， 全局上下文是在打开页面生成的，只有在页面关闭的时候才能释放掉。 特殊情况：只要上下文中的某些内容被上下文以外的东西占用，那么当前上下文是不会释放的(上下文中存储的变量等信息也保留下来了)
+函数第二次执行，会形成一个全新的私有上下文，把之前做过的事，原封不动的在执行一遍，此时形成的上下文和上一次形成的上下文之间没有必要联系。</p> <div class="language-js extra-class"><pre class="language-js"><code> 	<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+ 	<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token parameter">y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ 	   y<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+ 	   y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+ 	   y<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span>
+ 	   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+ 	<span class="token punctuation">}</span>
+ 	<span class="token function">fn</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/20200712114848436.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDE2MDM4NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <h3 id="_2、闭包作用域"><a href="#_2、闭包作用域" class="header-anchor">#</a> 2、闭包作用域</h3> <p>闭包： 函数运行时产生的一种机制，函数执行会形成一个全新的私有上下文，可以保护里面的私有变量和外界互不干扰（保护机制），但是大家普遍认为的闭包，认为当前上下文不能被出栈释放，这样私有变量及它的值不会被释放掉（保存机制）</p> <p>作用： 保护和保存 ， 保护里面的私有变量不被干扰，保存私有变量不被释放</p> <h2 id="_3、经典面试题分析"><a href="#_3、经典面试题分析" class="header-anchor">#</a> 3、经典面试题分析</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 题一</span>
+<span class="token keyword">let</span> x <span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token constant">A</span><span class="token punctuation">(</span><span class="token parameter">y</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+   <span class="token keyword">function</span> <span class="token constant">B</span><span class="token punctuation">(</span><span class="token parameter">z</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x <span class="token operator">+</span> y <span class="token operator">+</span>z<span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+   <span class="token keyword">return</span> <span class="token constant">B</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> <span class="token constant">C</span> <span class="token operator">=</span> <span class="token constant">A</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token constant">C</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> 
+<span class="token comment">// 7</span>
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/20200712144918187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDE2MDM4NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <blockquote><p>分析：</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 题二：</span>
+<span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">y</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>y<span class="token operator">+</span><span class="token punctuation">(</span><span class="token operator">++</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>  
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> f <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span> 
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> 
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token comment">// 14、18、18、5</span>
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/20200712161230406.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDE2MDM4NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <blockquote><p>分析：
+i ++ 和 ++i 的区别 i ++ 是先运算在加一，++i 是先加一在运算
+5+（++i）</p> <p>EC(G)——VO(G)  =&gt; 【 let x = 5 ;  fn=&gt;AAAFFF000 ,  f = fn(6) 执行fn 返回 ，所以 f  =&gt; BBBFFF000；】
+AAAFFF000 =&gt; [[scope]] : EC(G) 【 形参 x  &quot;return function(y){console.log(y+(++x))  }&quot; 】
+fn(6) =&gt; AAAFFF000(6) =&gt; EC(FN1) 【作用域链&lt;EC(FN1).EC(G)&gt;，形参 x = 6(会被下面修改++) ， 代码执行： return BBBFFF000 】
+BBBFFF000 =&gt; [[scope]] : EC(FN1)   【 形参 y  “console.log(y+(++x))” 】
+f(7) =&gt; BBBFFF000(7)  =&gt; EC(F1) 【作用域链&lt;EC(F1).EC(FN1)&gt;， 形参 y=7，代码执行：console.log(y+(++x) 】AAAFFF000中的x被修改为了7，不会释放，所以结果为14</p> <p>f(8)(9) =&gt; AAAFFF(8) =&gt; EC(FN2)  【作用域链&lt;EC(FN1).EC(G)&gt;，形参 x = 8(被下文变9) ， 代码执行： return BBBFFF111 】
+BBBFFF111 =&gt; [[scope]] : EC(FN1)   【 形参 y  “console.log(y+(++x))” 】
+AAAFFF(8) 临时不被释放，BBBFFF111(9)  =&gt; 形成EC(NA) =&gt;  【作用域链&lt;EC(NA).EC(FN2)&gt;，形参 y = 9 ， 代码执行： return BBBFFF111 】，没人用BBBFFF111了会被释放，所以结果为18</p> <p>f(10) =&gt; BBBFFF000(10) =&gt;EC(F2) =&gt; 【作用域链&lt;EC(F2).EC(FN1)&gt;， 形参 y=10，代码执行：10+ EC(FN1)中的x变为了++7】结果为18</p> <p>全局上下文中的x还是5</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 题三：</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    b <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token constant">A</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token function-variable function">A</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">b</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+         <span class="token function">alert</span><span class="token punctuation">(</span>a<span class="token operator">+</span>b<span class="token operator">++</span><span class="token punctuation">)</span>
+     <span class="token punctuation">}</span><span class="token punctuation">;</span>
+     <span class="token function">alert</span><span class="token punctuation">(</span>a<span class="token operator">++</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+ <span class="token constant">A</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 1</span>
+ <span class="token constant">A</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 4</span>
+ <span class="token comment">// &quot;1&quot; ， &quot;4&quot;</span>
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/20200712160845265.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDE2MDM4NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <blockquote><p>分析</p></blockquote> <h3 id="_4、js中的内存优化"><a href="#_4、js中的内存优化" class="header-anchor">#</a> 4、JS中的内存优化</h3> <ul><li><p><strong>栈内存【执行上下文】</strong>
+栈内存的优化：一般情况下，函数执行完，所形成的上下文会被出栈释放掉，
+特殊情况
+1、当前上下文中的某些内容被上下文以外的事物占用了，此时不能出栈释放
+2、全局上下文，加载页面创建的，也只有页面关闭才会被释放掉</p></li> <li><p><strong>堆内存</strong>
+浏览器的垃圾回收机制
+1、引用计数（IE为主、某些情况下不能正常计数，导致不能被释放——内存泄漏）
+2、检测引用（占用）（谷歌为主）， 浏览器在空闲时会一次检测所有的堆内存，把没有被任何事物占用的内存释放掉，以此优化内存
+手动释放内存一般就是解除占用，解除指针的指向，一般赋值为null (空对象指针)</p></li> <li><p><strong>闭包的使用</strong>
+大量使用闭包会造成性能损耗，但是闭包的保护和保存，我们还是需要的，所以开发中要合理使用闭包，使用后需要解除占用</p></li> <li><p><strong>闭包的应用</strong>
+1、实战用途
+2、 高阶编程：柯里化函数、惰性函数、compose函数
+3、 自己封装插件组件的时候，
+4、  源码分析JQ/Lodash/React（Redux/高阶组件/HOOKS）</p></li></ul> <h3 id="_5、闭包在实际中应用的场景"><a href="#_5、闭包在实际中应用的场景" class="header-anchor">#</a> 5、闭包在实际中应用的场景</h3> <p>完成一下点击按钮，完成换肤的效果，循环点击获取当前索引的五种方式
+<img src="https://img-blog.csdnimg.cn/202007121750503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDE2MDM4NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+html文件</p> <div class="language-html extra-class"><pre class="language-html"><code>	 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+	    <span class="token selector">html,
+	    body</span> <span class="token punctuation">{</span>
+	      <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+	      <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+	      <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+	    <span class="token punctuation">}</span>
+	  </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+	  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+	    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">index</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>红<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+	    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">index</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>1<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>绿<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+	    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">index</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>2<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>蓝<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+	    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">index</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>3<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>黑<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+	    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">index</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>4<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>粉<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+	  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h5 id="解决方式一"><a href="#解决方式一" class="header-anchor">#</a> 解决方式一</h5> <div class="language-js extra-class"><pre class="language-js"><code> <span class="token comment">/**
+     *  在ES6之前只有全局上下文和私有上下文
+     *  EC(G) arr ... , btns
+     *  循环中给每个按钮都添加了点击事件行为，但是都没有执行，循环结束时 i=5，此时
+     *  当点击按钮执行函数的时候，形成私有上下文，scope[[EC(G)]]，没有形参赋值，代码执行时 i 不是自己的私有变量，所以找全局i
+     *  解决方式1: 用函数包一层，
+     */</span>
+    <span class="token keyword">let</span> btns <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">&quot;button&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;black&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;pink&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> btns<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 子执行函数形成一个私有上下文，</span>
+      <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">/**
+         *  EC（AN）
+         *  作用域链 &lt;EC(AN),EC(G)&gt;
+         *  形参赋值 i=0
+         */</span>
+        <span class="token comment">// btn[0].onclick = AAAFFF000([[scope]]:EC(AN))</span>
+        btns<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token comment">/**
+           * 私有上下文 EC(EV)
+           *   作用域链：  &lt;EC(EV)， EC(AN)&gt;
+           *   这里的再遇到的i，不再是全局的i，而是上级作用域中EC(AN)的闭包中保存的i
+           */</span>
+          <span class="token keyword">var</span> color <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+          document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> color<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 把每一轮的实参I传给私有上下文中的形参i，第一轮传递的是0</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h5 id="解决方式二"><a href="#解决方式二" class="header-anchor">#</a> 解决方式二</h5> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token comment">/**
+     *  解决方式2: 用函数包一层
+     */</span>
+    <span class="token keyword">let</span> btns <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">&quot;button&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;black&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;pink&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> btns<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      btns<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>onclick <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">var</span> color <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+          document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> color<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h5 id="解决方式三"><a href="#解决方式三" class="header-anchor">#</a> 解决方式三</h5> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token comment">/**
+     *  解决方式3: 用let， 类似于闭包的机制
+     *  let 的特点
+     *  在ES6中基于let、const创建的函数，如果出现在非函数和对象的大括号当中，大括号里包裹的是一个全新的作用域
+     *  ES5以前没有块级作用域的概念，所以除函数外，都是全局作用域
+     *  ES6产生块级作用域，形成私有作用域
+     */</span>
+
+    <span class="token comment">// 每一轮都会形成一个私有的作用域，并且又一个私有变量i，分别存储每一轮的索引</span>
+    <span class="token comment">// 循环5轮，会形成6个作用域(加一个for循环的父作用域) —— 也不是全局的</span>
+    <span class="token comment">// let的块级作用域是浏览器底层自己实现的，比我们实现的闭包要好一些</span>
+    <span class="token keyword">let</span> btns <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">&quot;button&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;black&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;pink&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> btns<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      btns<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> color <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> color<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h5 id="解决方式四"><a href="#解决方式四" class="header-anchor">#</a> 解决方式四</h5> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token comment">/**
+     *  解决方式4: 用let， 类似于闭包的机制
+     * 真实项目中遇到循环事件绑定的，我们最好告别闭包机制，包括let，ES6
+     */</span>
+    <span class="token keyword">let</span> btns <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">&quot;button&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;black&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;pink&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> btns<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      btns<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>myIndex <span class="token operator">=</span> i<span class="token punctuation">;</span>
+      btns<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// =&gt; this 为当前操作的按钮</span>
+        <span class="token keyword">var</span> color <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>myIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> color<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h5 id="解决方式五"><a href="#解决方式五" class="header-anchor">#</a> 解决方式五</h5> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token comment">/**
+     *  解决方式4: 最好的方式 —— 利用事件委托和target事件源(性能最好)
+     *  在结构上就存储元素索引
+     */</span>
+    <span class="token keyword">let</span> btns <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">&quot;button&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;black&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;pink&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">ev</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> target <span class="token operator">=</span> ev<span class="token punctuation">.</span>target<span class="token punctuation">,</span>
+        targetName <span class="token operator">=</span> target<span class="token punctuation">.</span>tagName<span class="token punctuation">;</span>
+      <span class="token comment">// 当前点了按钮，target事件源就是这个按钮</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>targetName <span class="token operator">===</span> <span class="token string">&quot;BUTTON&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> index <span class="token operator">=</span> target<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">&quot;index&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> arr<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="_6、写在最后"><a href="#_6、写在最后" class="header-anchor">#</a> 6、写在最后</h2> <p>欢迎访问我的博客<a href="https://s2265681.github.io/" target="_blank" rel="noopener noreferrer">rockshang.com<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Guide/Javascript/7、堆栈内存.html" class="prev">
+        7、堆栈内存
+      </a></span> <span class="next"><a href="/Guide/Javascript/9、异步问题大全.html">
+        9、 异步问题大全
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.68ae7a9e.js" defer></script><script src="/assets/js/2.6575e8b1.js" defer></script><script src="/assets/js/37.074d14d7.js" defer></script>
+  </body>
+</html>
